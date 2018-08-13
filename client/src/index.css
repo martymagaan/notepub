@@ -1,0 +1,25 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+#notepad-textarea {
+  width: 100%;
+  height: 100%;
+  padding: 8px 11px;
+  margin: 0;
+  border: 0;
+  font: 17px monospace;
+  background: #f0f0f0;
+  color: #555;
+  resize: none;
+  outline: none;
+  overflow-y: scroll;
+}
