@@ -6,6 +6,7 @@ let content = '';
 
 io.on('connection', (socket) => {
   console.log('User connected');
+
   socket.emit('load-content', content);
 
   socket.on('change-content', (updatedContent) => {

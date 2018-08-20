@@ -5,18 +5,31 @@ import './index.css';
 
 const server = 'http://projects.martymagaan.com:3002';
 const socket = socketIOClient(server);
+let initContent;
+
+socket.on('load-content', (content) => {
+  initContent = content;
+});
+
+function Splash() {
+  return (
+    <div id="splash-screen">
+      <img
+        id="logo"
+        src="img/notepub.svg"
+        alt="Notepub Logo"
+      />
+    </div>
+  );
+}
 
 class Notepad extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {content: ''};
+    this.state = {content: initContent};
 
     this.handleChange = this.handleChange.bind(this);
-
-    socket.on('load-content', (content) => {
-      this.setState({content: content});
-    });
   }
 
   componentDidMount() {
@@ -36,12 +49,31 @@ class Notepad extends React.Component {
         value={this.state.content}
         onChange={this.handleChange}
         spellCheck="false"
+        placeholder="Type something."
       />
     );
   }
 }
 
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {showingSplash: true};
+    setTimeout(() => {
+      this.setState({showingSplash: false});
+    }, 1200);
+  }
+
+  render() {
+    if (this.state.showingSplash)
+      return <Splash />
+    else
+      return <Notepad />
+  }  
+}
+
 ReactDOM.render(
-  <Notepad />,
+  <App />,
   document.getElementById('root')
 );
