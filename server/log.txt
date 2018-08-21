@@ -1,9 +1,5 @@
 Listening on port 3002
-User connected
-User connected
-User connected
-User connected
-User connected
-User connected
-User connected
-User connected
+User connected Tue Aug 21 2018 17:57:41 GMT-0400 (EDT)
+User disconnected Tue Aug 21 2018 17:57:43 GMT-0400 (EDT)
+User connected Tue Aug 21 2018 17:57:43 GMT-0400 (EDT)
+User disconnected Tue Aug 21 2018 17:58:31 GMT-0400 (EDT)
